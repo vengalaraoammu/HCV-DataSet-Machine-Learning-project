@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Machine Learning Data Collection</title>
+</head>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: plum ;
+      padding: 20px;
+    }
+
+    h2 {
+      color: #333;
+      margin-left: 25%;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-right: 50%;
+      margin-left: 25%;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    input[type="number"],
+    input[type="text"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    .div-container {
+      flex: 1; /* Take up remaining space */
+      margin-left: 0%; /* Add space between form and div */
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+<body>
+    <div class="form-container">
+  <h2>Machine Learning Data Collection Form</h2>
+  <form action="/predict" method="post">
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" required><br><br>
+
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender" required>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select><br><br>
+
+    <label for="bmi">BMI:</label>
+    <input type="number" step="0.01" id="bmi" name="bmi" required><br><br>
+
+    <label for="fever">Fever:</label>
+    <input type="checkbox" id="fever" name="fever"><br><br>
+
+    <label for="nausea">Nausea/Vomiting:</label>
+    <input type="checkbox" id="nausea" name="nausea"><br><br>
+
+    <label for="headache">Headache:</label>
+    <input type="checkbox" id="headache" name="headache"><br><br>
+
+    <label for="diarrhea">Diarrhea:</label>
+    <input type="checkbox" id="diarrhea" name="diarrhea"><br><br>
+
+    <label for="fatigue">Fatigue & generalized bone ache:</label>
+    <input type="checkbox" id="fatigue" name="fatigue"><br><br>
+
+    <label for="jaundice">Jaundice:</label>
+    <input type="checkbox" id="jaundice" name="jaundice"><br><br>
+
+    <label for="epigastric">Epigastric pain:</label>
+    <input type="checkbox" id="epigastric" name="epigastric"><br><br>
+
+    <label for="wbc">WBC:</label>
+    <input type="number" step="0.01" id="wbc" name="wbc" required><br><br>
+
+    <label for="rbc">RBC:</label>
+    <input type="number" step="0.01" id="rbc" name="rbc" required><br><br>
+
+    <label for="hgb">HGB:</label>
+    <input type="number" step="0.01" id="hgb" name="hgb" required><br><br>
+
+    <label for="plat">Plat:</label>
+    <input type="number" step="0.01" id="plat" name="plat" required><br><br>
+
+    <label for="ast1">AST 1:</label>
+    <input type="number" step="0.01" id="ast1" name="ast1" required><br><br>
+
+    <label for="alt1">ALT 1:</label>
+    <input type="number" step="0.01" id="alt1" name="alt1" required><br><br>
+
+    <label for="alt4">ALT 4:</label>
+    <input type="number" step="0.01" id="alt4" name="alt4" required><br><br>
+
+    <label for="alt12">ALT 12:</label>
+    <input type="number" step="0.01" id="alt12" name="alt12" required><br><br>
+
+    <label for="alt24">ALT 24:</label>
+    <input type="number" step="0.01" id="alt24" name="alt24" required><br><br>
+
+    <label for="alt36">ALT 36:</label>
+    <input type="number" step="0.01" id="alt36" name="alt36" required><br><br>
+
+    <label for="alt48">ALT 48:</label>
+    <input type="number" step="0.01" id="alt48" name="alt48" required><br><br>
+
+    <label for="alt24w">ALT after 24 weeks:</label>
+    <input type="number" step="0.01" id="alt24w" name="alt24w" required><br><br>
+
+    <label for="rnaBase">RNA Base:</label>
+    <input type="number" step="0.01" id="rnaBase" name="rnaBase" required><br><br>
+
+    <label for="rna4">RNA 4:</label>
+    <input type="number" step="0.01" id="rna4" name="rna4" required><br><br>
+
+    <label for="rna12">RNA 12:</label>
+    <input type="number" step="0.01" id="rna12" name="rna12" required><br><br>
+
+    <label for="rnaEOT">RNA EOT:</label>
+    <input type="number" step="0.01" id="rnaEOT" name="rnaEOT" required><br><br>
+
+    <label for="rnaEF">RNA EF:</label>
+    <input type="number" step="0.01" id="rnaEF" name="rnaEF" required><br><br>
+
+    <label for="grading">Baseline histological Grading:</label>
+    <input type="number" step="0.01" id="grading" name="grading" required><br><br>
+
+    <input type="submit" value="Predict">
+    <div class="div-container">
+        <p>predicted outcome is: {{ result }}</p>
+      </div>
+  </form>
+
+  
+  
+
+</body>
+</html>
